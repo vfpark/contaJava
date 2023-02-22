@@ -3,43 +3,44 @@ package conta;
 import java.util.Scanner;
 
 import conta.model.Conta;
+import conta.model.ContaCorrente;
+import conta.model.ContaPoupanca;
 import conta.util.Cores;
 
 public class Menu {
-
+	
+	public static Scanner leia = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		
-		Scanner leia = new Scanner (System.in);
-		
-		//Criamos o Objeto Conta c1
-		Conta c1 = new Conta(1, 123, 1, "Erica Araújo", 30000.0f);
-		
-		//Visualizamos os dados da Conta c1
-		c1.visualizar();
-		
-		//Alteramos o saldo da Conta c1
-		c1.setSaldo(35000.0f);
-		
-		//Visualizamos apenas o saldo da Conta c1
-		System.out.println(c1.getSaldo());
-		
-		//Criamos o Objeto Conta c2
-		Conta c2 = new Conta(2, 123, 1, "Dener Cardoso", 50000.0f);
-		
-		//Visualizamos os dados da Conta c2
-		c2.visualizar();
-		
-		//Efetuamos um saque na Conta c2 e visualizamos o novo saldo
-		if(c2.sacar(1000.0f))
-			System.out.println("\n\n" + c2.getSaldo());
-		
-		//Efetuamos um deposito na Conta c1
-		c1.depositar(10000.0f);
-		
-		//Visualizamos o novo saldo da Conta c1
-		c1.visualizar();
-		
 		int opcao;
+		
+
+		// Teste da Classe Conta
+		Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
+		c1.visualizar();
+		c1.sacar(12000.0f);
+		c1.visualizar();
+		c1.depositar(5000.0f);
+		c1.visualizar();
+
+		Scanner leia = new Scanner(System.in);
+
+		 // Teste da Classe Conta Corrente
+		ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Mariana", 15000.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+		
+        // Teste da Classe Conta Poupança
+		ContaPoupanca cp1 = new ContaPoupanca(3, 123, 2, "Victor", 100000.0f, 15);
+		cp1.visualizar();
+        cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
 		
 		while (true) {
 			
@@ -62,50 +63,50 @@ public class Menu {
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
-
+			
 			opcao = leia.nextInt();
 
 			if (opcao == 9) {
-				System.out.println("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
 				leia.close();
 				System.exit(0);
 			}
 
 			switch (opcao) {
 				case 1:
-					System.out.println("Criar Conta\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
 
 					break;
 				case 2:
-					System.out.println("Listar todas as Contas\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Listar todas as Contas\n\n");
 
 					break;
 				case 3:
-					System.out.println("Consultar dados da Conta - por número\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por número\n\n");
 
 					break;
 				case 4:
-					System.out.println("Atualizar dados da Conta\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
 
 					break;
 				case 5:
-					System.out.println("Apagar a Conta\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Apagar a Conta\n\n");
 
 					break;
 				case 6:
-					System.out.println("Saque\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
 
 					break;
 				case 7:
-					System.out.println("Depósito\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
 
 					break;
 				case 8:
-					System.out.println("Transferência entre Contas\n\n");
+					System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
 
 					break;
 				default:
-					System.out.println("\nOpção Inválida!\n");
+					System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
 					break;
 			}
 		}
