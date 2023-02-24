@@ -9,7 +9,6 @@ public abstract class Conta {
 	private float saldo;
 	
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
-		super();
 		this.numero = numero;
 		this.agencia = agencia;
 		this.tipo = tipo;
